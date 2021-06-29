@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Criar Percursos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label (click)="voltar()">
+            VOLTAR
+          </ion-label>
+        </ion-item> 
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col size="4">
+        <ion-item (click)="criar()">
+          CONCLUIR
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+      <ion-col size="10"></ion-col>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+      <ion-col size="10">
+        <div>
+          <ion-item>
+            <ion-label position="floating">Inserir Nome do Percurso</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--Usar check box para escoleher os pontos de interesse-->
+  </ion-grid>
+</ion-content>

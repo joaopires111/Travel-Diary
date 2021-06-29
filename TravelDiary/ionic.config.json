@@ -1,0 +1,7 @@
+{
+  "name": "TravelDiary",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
