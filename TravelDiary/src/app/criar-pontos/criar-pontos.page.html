@@ -44,7 +44,7 @@
     </ion-row>
     <ion-item>
       <ion-label>Tipo de Interesse</ion-label>
-      <ion-select [(ngModel)]="newPonto.tipo" placeholder="Alojamento">
+      <ion-select #myList [(ngModel)]="newPonto.tipo" placeholder="Alojamento">
         <ion-select-option value="Alojamento">Alojamento</ion-select-option>
         <ion-select-option value="Restauração">Restauração</ion-select-option>
         <ion-select-option value="Transporte">Transporte</ion-select-option>

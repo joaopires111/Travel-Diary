@@ -50,6 +50,11 @@
         </div>
       </ion-col>
     </ion-row>
-    <!--Usar check box para escoleher os pontos de interesse-->
+    <ion-item>
+      <ion-label>Selecionar pontos de interesse</ion-label>
+      <ion-select #myList *ngFor="let ponto of pontos" placeholder="Escolhe os Pontos de Interesse">
+        <ion-select-option  value="{{ponto}}">{{ponto.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-grid>
 </ion-content>
