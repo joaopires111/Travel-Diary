@@ -75,4 +75,13 @@ export class PdiPage{
   public Percurso(){
     this.router.navigate(["percursos"]);
   }
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      this.myList.closeSlidingItems();
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 1000);
+  }
 }
