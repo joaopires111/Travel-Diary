@@ -14,8 +14,8 @@
       <ion-col size="10">
         <div>
           <ion-item>
-            <ion-label position="floating">Nome do ponto de interesse</ion-label>
-            <ion-input></ion-input>
+            <ion-label position="floating">Nome do lugar</ion-label>
+            <ion-input [(ngModel)]="newPonto.nome"></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -32,8 +32,8 @@
       <ion-col size="10">
         <div>
           <ion-item>
-            <ion-label position="floating">Nome do Lugar</ion-label>
-            <ion-input></ion-input>
+            <ion-label position="floating">Nome da Cidade</ion-label>
+            <ion-input [(ngModel)]="newPonto.lugar"></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -42,65 +42,20 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-list>
+    <ion-item>
+      <ion-label>Tipo de Interesse</ion-label>
+      <ion-select [(ngModel)]="newPonto.tipo" placeholder="Alojamento">
+        <ion-select-option value="Alojamento">Alojamento</ion-select-option>
+        <ion-select-option value="Restauração">Restauração</ion-select-option>
+        <ion-select-option value="Transporte">Transporte</ion-select-option>
+        <ion-select-option value="Monumento">Monumento</ion-select-option>
+        <ion-select-option value="Museu">Museu</ion-select-option>
+        <ion-select-option value="Lazer">Lazer</ion-select-option>
+        <ion-select-option value="Outro">Outro</ion-select-option>
+      </ion-select>
+    </ion-item>
     <ion-row>
-      <ion-col>Tipo de interesse</ion-col>
-    </ion-row>
-    <ion-radio-group>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Alojamento</ion-label>
-          <ion-radio value="alojamento"></ion-radio>
-        </ion-item> 
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Restauração</ion-label>
-          <ion-radio value="restauracao"></ion-radio>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Transporte</ion-label>
-          <ion-radio value="transporte"></ion-radio>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Monumento</ion-label>
-          <ion-radio value="monumento"></ion-radio>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Museu</ion-label>
-          <ion-radio value="museu"></ion-radio>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Lazer</ion-label>
-          <ion-radio value="lazer"></ion-radio>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Outros</ion-label>
-          <ion-radio value="outros"></ion-radio>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-radio-group>
-  </ion-list>
-    <ion-row>
-      <ion-col size="3"><ion-button shape="round" (click)="guardar()">Inserir</ion-button></ion-col>
+      <ion-col size="3"><ion-button shape="round" (click)="addPonto()">Inserir</ion-button></ion-col>
       <ion-col size="5"></ion-col>
       <ion-col size="3"><ion-button shape="round" (click)="voltar()">Cancelar</ion-button></ion-col>
       <ion-col ></ion-col>

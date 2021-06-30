@@ -22,7 +22,7 @@ export class CriarPontosPage {
     })
    }
 
-   addItem(){
+   addPonto(){
      this.newPonto.id = Date.now();
 
      this.storageService.addPonto(this.newPonto).then(ponto => {

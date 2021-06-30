@@ -1,34 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pdi</ion-title>
+    <ion-title>Ponto de interesse</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-      </ion-col>
-      <ion-col size="9">
-        <ion-item>
-          <ion-label>Pontos de interesse</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col size="2">
-        <ion-item (click)="criarPonto()">
-          <ion-icon name="add-circle"></ion-icon>
-        </ion-item>  
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-list>
-    <!--<ion-item (click)="verPonto('[nome de alguma coisa]')">
-      <ion-label>
-        <h2 class="ion-text-wrap">Turismo no inverno</h2>
-        <h3>Destino: Sevilha</h3>
-      </ion-label>
-    </ion-item>!-->
-  </ion-list>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button>
@@ -41,4 +17,37 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          <ion-label>Pontos de interesse</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="2">
+        <ion-item (click)="criarPonto()">
+          <ion-icon name="add-circle"></ion-icon>
+        </ion-item>  
+      </ion-col>
+    </ion-row> 
+  </ion-grid>
+
+  <ion-list #myList>
+    <ion-item-sliding *ngFor="let ponto of pontos">
+      <ion-item>
+        <ion-label>
+          <h3>{{ponto.nome}}</h3>
+          <ion-text color="secondary">
+            <p>{{ ponto.lugar }}</p>
+          </ion-text>
+          <p>{{ponto.tipo}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deletePonto(ponto)">Eliminar</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
