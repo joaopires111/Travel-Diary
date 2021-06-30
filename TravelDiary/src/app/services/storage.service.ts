@@ -65,13 +65,14 @@ export class StorageService {
       if(!pontos || pontos.length === 0){
         return null;
       }
-      let toKeep: Ponto[];
-      for(let i of pontos){
-        if(i.id !== id){
-          toKeep.push(i);
-        }
+      for(let i = 0; i< pontos.length; i++){
+        if(pontos[i].id == id)
+          pontos.splice(i, 1);
       }
-      return this.storage.set(PONTO_KEY, toKeep);
+      console.log(pontos)
+      
+      
+      return this.storage.set(PONTO_KEY, pontos);
     });
   }
 

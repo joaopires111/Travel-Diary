@@ -35,6 +35,7 @@ export class PdiPage{
    loadPontos(){
      this.storageService.getPontos().then(pontos => {
        this.pontos = pontos;
+       this.myList.closeSlidingItems();
        console.log(pontos[0].lugar);
      })
    };
