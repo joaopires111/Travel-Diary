@@ -29,7 +29,8 @@ export class CriarPontosPage {
        this.newPonto = <Ponto>{};
        this.showToast('Ponto de Interesse criado');
        this.loadPontos();
-     })
+     });
+     this.router.navigate(['pdi']);
    }
 
    loadPontos(){
@@ -65,6 +66,7 @@ export class CriarPontosPage {
      });
      toast.present();
    }
+
   voltar(){
     this.router.navigate(['pdi']);
   }

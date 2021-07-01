@@ -39,7 +39,8 @@ export class CriarPercursosPage {
           this.loadPercursos(); 
           this.myList1.closeSlidingItems();
       })
-    })
+    });
+    this.router.navigate(['percursos']);
   }
    
    /*addPonto(){
@@ -92,11 +93,6 @@ export class CriarPercursosPage {
      });
      toast.present();
    }
-
-  
-  criar(){
-    //adicionar ao grupo de percursos
-  }
 
   voltar(){
     this.router.navigate(['percursos']);
