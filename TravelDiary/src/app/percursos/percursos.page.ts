@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Percurso, Ponto, StorageService } from '../services/storage.service';
 import { Platform, ToastController, IonList } from '@ionic/angular';
 
@@ -28,6 +28,12 @@ export class PercursosPage {
     });
   }
 
+  atualizar(){
+    this.showToast('Atualizar Lista de Pontos');
+    this.myList1.closeSlidingItems();
+    this.loadPercursos();
+  }
+
   deletePercurso(percurso: Percurso){
     this.storageService.deletePercurso(percurso.id).then(percursos =>{
       this.showToast('Percurso Removido');
@@ -43,6 +49,20 @@ export class PercursosPage {
     });
     toast.present();
   }
+//nanigationExtras
+  public verPercurso(id: number) {
+    let navigationExtras: NavigationExtras;
+    for(let i = 0; i< this.percursos.length; i++){
+      if(this.percursos[i].id == id){
+        navigationExtras = {
+          state: {
+            percurso: this.percursos[i]
+          }
+        };
+        this.router.navigate(['detalhe-percurso'], navigationExtras);
+      }
+    }
+  } 
 
 //routes
   public criarPercurso(){

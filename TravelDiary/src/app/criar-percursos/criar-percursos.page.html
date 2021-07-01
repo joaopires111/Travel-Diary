@@ -7,16 +7,10 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="4">
-        <ion-button color="danger" (click)="voltar()">
-          VOLTAR
-        </ion-button> 
-      </ion-col>
-      <ion-col></ion-col>
-      <ion-col size="4">
-        <ion-button color="success"(click)="addPercurso()" [disabled]='!(this.nomes.length > 0 && this.newPercurso.nome.length >= 2)'>
-          CONCLUIR
-        </ion-button>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label class="ion-text-center">Criação do Percurso</ion-label>
+        </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -39,7 +33,7 @@
         <div>
           <ion-item>
             <ion-label position="floating">Inserir Nome do Percurso</ion-label>
-            <ion-input [(ngModel)]="newPercurso.nome"  minlength="2" required></ion-input>
+            <ion-input [(ngModel)]="newPercurso.nome" minlength="2" required></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -57,6 +51,21 @@
           <ion-select-option *ngFor="let ponto of pontos" value="{{ponto.nome}}">{{ponto.nome}}</ion-select-option>
         </ion-select>
         </ion-item>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="3">
+        <ion-button color="danger" (click)="voltar()">
+          VOLTAR
+        </ion-button> 
+      </ion-col>
+      <ion-col size="4"></ion-col>
+      <ion-col size="3">
+        <ion-button color="success"(click)="addPercurso()" [disabled]='!(this.nomes.length > 0 && this.newPercurso.nome.length >= 2)'>
+          CONCLUIR
+        </ion-button>
       </ion-col>
       <ion-col></ion-col>
     </ion-row>

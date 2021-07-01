@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'criar-percursos',
     loadChildren: () => import('./criar-percursos/criar-percursos.module').then( m => m.CriarPercursosPageModule)
+  },  {
+    path: 'detalhe-percurso',
+    loadChildren: () => import('./detalhe-percurso/detalhe-percurso.module').then( m => m.DetalhePercursoPageModule)
   },
+
 ];
 
 @NgModule({

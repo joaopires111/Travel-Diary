@@ -37,7 +37,6 @@ export class CriarPercursosPage {
           this.newPercurso = <Percurso>{};
           this.showToast('Percurso adicionado');
           this.loadPercursos(); 
-          this.myList1.closeSlidingItems();
       })
     });
     this.router.navigate(['percursos']);

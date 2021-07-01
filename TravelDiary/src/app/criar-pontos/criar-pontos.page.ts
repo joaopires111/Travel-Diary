@@ -13,6 +13,7 @@ export class CriarPontosPage {
   pontos: Ponto[] = [];
 
   newPonto: Ponto = <Ponto>{}
+  
 
   @ViewChild('myList')myList: IonList;
   
@@ -69,5 +70,11 @@ export class CriarPontosPage {
 
   voltar(){
     this.router.navigate(['pdi']);
+  }
+
+  verificar(){
+    if(this.newPonto.lugar != undefined && this.newPonto.nome != undefined && this.newPonto.tipo != undefined)
+      return !(this.newPonto.nome.length >= 2 && this.newPonto.lugar.length >= 2 && this.newPonto.tipo != "");
+    return true;
   }
 }

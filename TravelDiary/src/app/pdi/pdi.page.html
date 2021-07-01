@@ -22,18 +22,18 @@
     <ion-row>
       <ion-col size="8">
         <ion-item>
-          <ion-label>Pontos de interesse</ion-label>
+          <ion-label>Pontos de interesse Criados</ion-label>
         </ion-item>
       </ion-col>
       <ion-col size="2">
-        <ion-item (click)="atualizar()">
+        <ion-button (click)="atualizar()">
           <ion-icon name="refresh-outline"></ion-icon>
-        </ion-item>  
+        </ion-button>  
       </ion-col>
       <ion-col size="2">
-        <ion-item (click)="criarPonto()">
+        <ion-button (click)="criarPonto()">
           <ion-icon name="add-circle"></ion-icon>
-        </ion-item>  
+        </ion-button>  
       </ion-col>
     </ion-row> 
   </ion-grid>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalhePercurso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size=3>
+        <ion-button (click)="voltar()" expand="block" shape="round">
+        Voltar
+      </ion-button>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card *ngIf="percurso">
+    <ion-card-header color="tertiary">
+      <ion-card-title class="ion-text-center">
+        {{ percurso.nome}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngFor="let ponto of percurso.pontos">
+        <ion-item>
+          <ion-label>
+            <h3>{{ponto.nome}}</h3>
+            <ion-text color="secondary">
+              <p>{{ponto.lugar }}</p>
+            </ion-text>
+            <p>{{ponto.tipo}}</p>
+          </ion-label>
+        </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
