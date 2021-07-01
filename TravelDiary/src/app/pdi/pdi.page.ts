@@ -2,13 +2,19 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ponto, StorageService } from '../services/storage.service';
 import { Platform, ToastController, IonList } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
+
+  
   selector: 'app-pdi',
   templateUrl: './pdi.page.html',
   styleUrls: ['./pdi.page.scss'],
 })
+
+
 export class PdiPage{
+  
 
   pontos: Ponto[] = [];
 
@@ -16,12 +22,38 @@ export class PdiPage{
 
   @ViewChild('myList')myList: IonList;
   
-  constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
+  constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController, private alertcontroller: AlertController) {
     this.plt.ready().then(()=>{
       this.myList.closeSlidingItems();
       this.loadPontos();
     })
+    
    }
+
+   async presentAlertConfirm(p:Ponto) {
+    const alert = await this.alertcontroller.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'Message <strong>text</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => { 
+            console.log('Confirm Okay');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.deletePonto(p);
+            console.log('Confirm delete');
+          }
+        }
+      ]
+    });
+  await alert.present();
+  }
 
    atualizar(){
     this.showToast('Atualizar Lista de Pontos');
@@ -81,4 +113,7 @@ export class PdiPage{
   public Percurso(){
     this.router.navigate(["percursos"]);
   }
+
+  
+
 }
