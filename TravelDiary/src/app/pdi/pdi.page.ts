@@ -66,7 +66,7 @@ export class PdiPage{
      });
    }
 
-   async showToast(msg){
+   async showToast(msg){    
      const toast = await this.toastController.create({
        message: msg,
        duration: 2000
