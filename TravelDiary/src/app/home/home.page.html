@@ -65,7 +65,7 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-button (click)="login()" shape="round"[disabled]='!(username.length > 5 && password.length > 7)'>Iníciar</ion-button>
+          <ion-button (click)="login()" shape="round"[disabled]='verificar()'>Iníciar</ion-button>
         </div>
       </ion-col>
       <ion-col>

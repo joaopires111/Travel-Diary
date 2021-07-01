@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,28 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  username: string;
+  password: string;
+  
+  constructor(private router: Router, private toastController: ToastController) {
+    this.username = "";
+    this.password = "";
+  }
 
-  public login(){
+  login(){
+    this.showToast("Bem vindo" + this.username);
     this.router.navigate(['pdi']);
+  }
+
+  verificar(){
+      return !(this.username.length > 5 && this.password.length > 7); 
+  }
+
+  async showToast(msg){    
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
   }
 }
