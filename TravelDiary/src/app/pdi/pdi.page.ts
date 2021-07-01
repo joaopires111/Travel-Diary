@@ -18,8 +18,15 @@ export class PdiPage{
   
   constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
     this.plt.ready().then(()=>{
+      this.myList.closeSlidingItems();
       this.loadPontos();
     })
+   }
+
+   atualizar(){
+    this.showToast('Atualizar Lista de Pontos');
+    this.myList.closeSlidingItems();
+    this.loadPontos();
    }
 
    addPonto(){
@@ -36,7 +43,6 @@ export class PdiPage{
      this.storageService.getPontos().then(pontos => {
        this.pontos = pontos;
        this.myList.closeSlidingItems();
-       console.log(pontos[0].lugar);
      })
    };
 

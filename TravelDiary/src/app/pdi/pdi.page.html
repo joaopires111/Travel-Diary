@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ponto de interesse</ion-title>
+    <ion-title>TravelDiary</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,10 +20,15 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="10">
+      <ion-col size="8">
         <ion-item>
           <ion-label>Pontos de interesse</ion-label>
         </ion-item>
+      </ion-col>
+      <ion-col size="2">
+        <ion-item (click)="atualizar()">
+          <ion-icon name="refresh-outline"></ion-icon>
+        </ion-item>  
       </ion-col>
       <ion-col size="2">
         <ion-item (click)="criarPonto()">

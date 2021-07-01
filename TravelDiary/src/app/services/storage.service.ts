@@ -77,12 +77,12 @@ export class StorageService {
   }
 
   addPercurso(percurso: Percurso): Promise<any>{
-    return this.storage.get(PONTO_KEY).then((percursos: Percurso[]) =>{
+    return this.storage.get(PERCURSO_KEY).then((percursos: Percurso[]) =>{
       if(percursos){
         percursos.push(percurso);
-        return this.storage.set(PONTO_KEY, percursos);
+        return this.storage.set(PERCURSO_KEY, percursos);
       }else{
-        return this.storage.set(PONTO_KEY, [percurso]);
+        return this.storage.set(PERCURSO_KEY, [percurso]);
       }
     });
   }
@@ -107,7 +107,7 @@ export class StorageService {
           newPercursos.push(i);
         }
       }
-      return this.storage.set(PONTO_KEY, newPercursos);
+      return this.storage.set(PERCURSO_KEY, newPercursos);
     });
   }
 
@@ -116,13 +116,12 @@ export class StorageService {
       if(!percursos || percursos.length === 0){
         return null;
       }
-      let toKeep: Percurso[];
-      for(let i of percursos){
-        if(i.id !== id){
-          toKeep.push(i);
+      for(let i = 0; i<percursos.length; i++){
+          if(percursos[i].id == id)
+            percursos.splice(i, 1);
         }
-      }
-      return this.storage.set(PERCURSO_KEY, toKeep);
+      
+      return this.storage.set(PERCURSO_KEY, percursos);
     });
   }
 }

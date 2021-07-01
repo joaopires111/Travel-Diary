@@ -12,17 +12,36 @@ export class CriarPercursosPage {
   pontos: Ponto[] = [];
   newPonto: Ponto = <Ponto>{};
 
-  newPontos: Ponto[] = [];
+  nomes: string[] = [];
+  newPontos: Ponto[] = <Ponto[]>{};
   newPercurso: Percurso = <Percurso>{};
+  percursos: Percurso[] = [];
 
-  @ViewChild('myList')myList: IonList;
+  @ViewChild('myList')myList: IonList;//para colocar os Pontos para serem selecionados
+  @ViewChild('myList1')myList1: IonList;//para colocar os Pontos para serem selecionados
   
   constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
     this.plt.ready().then(()=>{
       this.loadPontos();
+      this.loadPercursos();
     })
    }
 
+  addPercurso(){
+    this.storageService.getPontos().then(pontos => {
+      this.searchPontos(this.nomes, pontos);
+       this.newPercurso.id = Date.now();
+
+      this.storageService.addPercurso(this.newPercurso).then(percurso => {
+        
+          this.newPercurso = <Percurso>{};
+          this.showToast('Percurso adicionado');
+          this.loadPercursos(); 
+          this.myList1.closeSlidingItems();
+      })
+    })
+  }
+   
    /*addPonto(){
      this.newPonto.id = Date.now();
 
@@ -33,12 +52,18 @@ export class CriarPercursosPage {
      })
    }*/
 
+    loadPercursos(){
+    this.storageService.getPercursos().then(percursos => {
+      this.percursos = percursos;
+      });
+    }
+
    loadPontos(){
      this.storageService.getPontos().then(pontos => {
        this.pontos = pontos;
        console.log(pontos[0].lugar);
      })
-   };
+   }
 
    /*updatePonto(ponto: Ponto){
     ponto.lugar = `UPDATED: ${ponto.lugar}`;
@@ -75,5 +100,16 @@ export class CriarPercursosPage {
 
   voltar(){
     this.router.navigate(['percursos']);
+  }
+
+  searchPontos(nomes: string[], pontos: Ponto[]){ 
+    this.newPercurso.pontos = [];
+    for(let j = 0; j< nomes.length; j++){
+      for(let i = 0; i< pontos.length; i++){
+        if(nomes[j] == pontos[i].nome)
+          this.newPercurso.pontos.push(pontos[i]);  
+      }
+    }
+    console.log(this.newPercurso.pontos);
   }
 }

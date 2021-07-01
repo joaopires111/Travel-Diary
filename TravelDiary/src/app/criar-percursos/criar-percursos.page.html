@@ -16,7 +16,7 @@
       </ion-col>
       <ion-col></ion-col>
       <ion-col size="4">
-        <ion-item (click)="criar()">
+        <ion-item (click)="addPercurso()">
           CONCLUIR
         </ion-item>
       </ion-col>
@@ -41,7 +41,7 @@
         <div>
           <ion-item>
             <ion-label position="floating">Inserir Nome do Percurso</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="newPercurso.nome"></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -50,11 +50,17 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-item>
-      <ion-label>Selecionar pontos de interesse</ion-label>
-      <ion-select #myList *ngFor="let ponto of pontos" placeholder="Escolhe os Pontos de Interesse">
-        <ion-select-option  value="{{ponto}}">{{ponto.nome}}</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col size="10">
+        <ion-item>
+        <ion-label>Selecionar pontos de interesse</ion-label>
+        <ion-select #myList multiple="true" [(ngModel)]="nomes" placeholder="Escolhe os Pontos de Interesse">
+          <ion-select-option *ngFor="let ponto of pontos" value="{{ponto.nome}}">{{ponto.nome}}</ion-select-option>
+        </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
