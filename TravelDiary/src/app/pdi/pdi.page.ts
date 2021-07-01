@@ -32,19 +32,19 @@ export class PdiPage{
 
    async presentAlertConfirm(p:Ponto) {
     const alert = await this.alertcontroller.create({
-      cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: 'Apagar '+p.nome+'?',
+      message: 'Deseja apagar este ponto ?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => { 
-            console.log('Confirm Okay');
+            console.log('Confirm cancel');
           }
         }, {
-          text: 'Okay',
+          text: 'Confirmar',
+          cssClass: 'danger',
           handler: () => {
             this.deletePonto(p);
             console.log('Confirm delete');

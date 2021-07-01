@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Percurso, Ponto, StorageService } from '../services/storage.service';
 import { Platform, ToastController, IonList } from '@ionic/angular';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-percursos',
   templateUrl: './percursos.page.html',
@@ -13,11 +13,36 @@ export class PercursosPage {
 
   @ViewChild('myList1')myList1: IonList;//para colocar um grupo de pontos para inserir no Percurso
 
-  constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
+  constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController, private alertcontroller: AlertController) {
     this.plt.ready().then(()=>{
       this.loadPercursos();
       this.myList1.closeSlidingItems();
     })
+  }
+
+  async presentAlertConfirm(p:Percurso) {
+    const alert = await this.alertcontroller.create({
+      header: 'Apagar '+p.nome+'?',
+      message: 'Deseja apagar este ponto ?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => { 
+            console.log('Confirm cancel');
+          }
+        }, {
+          text: 'Confirmar',
+          cssClass: 'danger',
+          handler: () => {
+            this.deletePercurso(p);
+            console.log('Confirm delete');
+          }
+        }
+      ]
+    });
+  await alert.present();
   }
 
 //gerenciamento do storage
