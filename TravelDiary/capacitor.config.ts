@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'pt.grupo49.traveldiary',
-  appName: 'TravelDiary',
+  appId: 'pt.grupo49.traveldiary2',
+  appName: 'TravelDiary Recurso',
   webDir: 'www',
   bundledWebRuntime: false,
   cordova: {

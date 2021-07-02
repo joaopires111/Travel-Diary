@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "TravelDiary",
+	"appId": "pt.grupo49.traveldiary2",
+	"appName": "TravelDiary Recurso",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"cordova": {

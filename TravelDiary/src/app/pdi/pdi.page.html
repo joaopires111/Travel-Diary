@@ -1,20 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+  <ion-grid fixed>
+    <ion-row style="height: 35px"></ion-row>
+  </ion-grid>
   <ion-tabs>
-    <ion-tab-bar slot="bottom">
+    <ion-tab-bar slot="bottom" opacity="0">
       <ion-tab-button>
         <ion-label>Pontos de Interesse</ion-label>
         <ion-icon name="map"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button (click)="home()">
-        <ion-label color="danger">Deslogar</ion-label>
-        <ion-icon name="log-out"></ion-icon>
-      </ion-tab-button>
+
       <ion-tab-button (click)="Percurso()">
         <ion-label>Percursos</ion-label>
         <ion-icon name="flag"></ion-icon>
@@ -42,7 +38,10 @@
     </ion-row> 
   </ion-grid>
 
-  <ion-list #myList>
+  <ion-grid fixed>
+
+
+  <ion-list #myList class="transparencia">
     <ion-item-sliding *ngFor="let ponto of pontos">
       <ion-item>
         <ion-label>
@@ -60,4 +59,5 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+</ion-grid>
 </ion-content>

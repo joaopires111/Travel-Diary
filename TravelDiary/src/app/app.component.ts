@@ -27,17 +27,17 @@ export class AppComponent {
 
   showExitConfirm() {
     this.alertController.create({
-      header: 'App termination',
-      message: 'Do you want to close the app?',
+      header: 'Saida',
+      message: 'Quer fechar a app?',
       backdropDismiss: false,
       buttons: [{
-        text: 'Stay',
+        text: 'Ficar',
         role: 'cancel',
         handler: () => {
           console.log('Application exit prevented!');
         }
       }, {
-        text: 'Exit',
+        text: 'Sair',
         handler: () => {
           navigator['app'].exitApp();
         }

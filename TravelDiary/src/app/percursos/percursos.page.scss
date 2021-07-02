@@ -1,9 +1,6 @@
-/* DOES NOT WORK - not specific enough */
-.alert-wrapper {
-    background: #e5e5e5;
-  }
-  
-  /* Works - pass "my-custom-class" in cssClass to increase specificity */
-  .my-custom-class .alert-wrapper {
-    background: #e5e5e5;
-  }
+
+ion-tab-bar {
+  --background: rgb(32, 32, 32);
+    --background-activated: rgb(53, 53, 53);
+    --color: #428cff;
+}

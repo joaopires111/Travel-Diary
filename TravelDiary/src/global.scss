@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content {
+    --background: linear-gradient(0deg, #ff8b1f, #ff1f1f);
+  }
+
+  ion-item {
+    --background: rgb(32, 32, 32);
+      --background-activated: rgb(53, 53, 53);
+      --color: #ffffff;
+      --border-radius: 10px;
+
+    }   
+    ion-tab-bar {
+      --background: rgb(32, 32, 32);
+        --background-activated: rgb(53, 53, 53);
+        --color: #ff8b1f;
+    }
+
