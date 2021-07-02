@@ -22,6 +22,9 @@ export class CriarPercursosPage {
   @ViewChild('myList1')myList1: IonList;//para colocar os Pontos para serem selecionados
   
   constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
+    this.nomes = [];
+    this.newPercurso.nome = "";
+    
     this.plt.ready().then(()=>{
       this.loadPontos();
       this.loadPercursos();
@@ -81,5 +84,9 @@ export class CriarPercursosPage {
       }
     }
     console.log(this.newPercurso.pontos);
+  }
+
+  atualizar(){
+    return !(this.nomes.length > 0 && this.newPercurso.nome.length >= 2)
   }
 }
