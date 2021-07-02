@@ -16,16 +16,18 @@ export class HomePage {
     this.username = "";
     this.password = "";
   }
-
+//iniciar a conta(fazer de conta)
   login(){
     this.showToast("Bem vindo" + this.username);
     this.router.navigate(['pdi']);
   }
 
+//verifica a condição para ativa o botao
   verificar(){
       return !(this.username.length > 5 && this.password.length > 7); 
   }
 
+//fazer toast
   async showToast(msg){    
     const toast = await this.toastController.create({
       message: msg,

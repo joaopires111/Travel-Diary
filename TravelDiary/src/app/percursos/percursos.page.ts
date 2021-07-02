@@ -20,6 +20,7 @@ export class PercursosPage {
     })
   }
 
+//cria um alert
   async presentAlertConfirm(p:Percurso) {
     const alert = await this.alertcontroller.create({
       header: 'Apagar '+p.nome+'?',
@@ -53,12 +54,14 @@ export class PercursosPage {
     });
   }
 
+//botão para atualizar os percursos
   atualizar(){
     this.showToast('Atualizar Lista de Pontos');
     this.myList1.closeSlidingItems();
     this.loadPercursos();
   }
 
+//elimina o percurso
   deletePercurso(percurso: Percurso){
     this.storageService.deletePercurso(percurso.id).then(percursos =>{
       this.showToast('Percurso Removido');
@@ -67,6 +70,7 @@ export class PercursosPage {
     });
   }
 
+//
   async showToast(msg){
     const toast = await this.toastController.create({
       message: msg,
@@ -89,7 +93,7 @@ export class PercursosPage {
     }
   } 
 
-//routes
+//routes das tabs
   public criarPercurso(){
     this.router.navigate(['criar-percursos']);
   }

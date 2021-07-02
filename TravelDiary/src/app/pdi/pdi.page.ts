@@ -26,11 +26,11 @@ export class PdiPage{
     this.plt.ready().then(()=>{
       this.myList.closeSlidingItems();
       this.loadPontos();
-    })
-    
-   }
+    }) 
+  }
 
-   async presentAlertConfirm(p:Ponto) {
+//cria um alert
+  async presentAlertConfirm(p:Ponto) {
     const alert = await this.alertcontroller.create({
       header: 'Apagar '+p.nome+'?',
       message: 'Deseja apagar este ponto ?',
@@ -52,60 +52,43 @@ export class PdiPage{
         }
       ]
     });
-  await alert.present();
+    await alert.present();
   }
 
-   atualizar(){
-    this.showToast('Atualizar Lista de Pontos');
-    this.myList.closeSlidingItems();
-    this.loadPontos();
-   }
+//botao para atualizar os pontos
+  atualizar(){
+  this.showToast('Atualizar Lista de Pontos');
+  this.myList.closeSlidingItems();
+  this.loadPontos();
+  }
 
-   addPonto(){
-     this.newPonto.id = Date.now();
+//atualiza os pontos
+  loadPontos(){
+    this.storageService.getPontos().then(pontos => {
+      this.pontos = pontos;
+      this.myList.closeSlidingItems();
+    })
+  };
 
-     this.storageService.addPonto(this.newPonto).then(ponto => {
-       this.newPonto = <Ponto>{};
-       this.showToast('Ponto de Interesse criado');
-       this.loadPontos();
-     })
-   }
-
-   loadPontos(){
-     this.storageService.getPontos().then(pontos => {
-       this.pontos = pontos;
-       this.myList.closeSlidingItems();
-     })
-   };
-
-   updatePonto(ponto: Ponto){
-    ponto.lugar = `UPDATED: ${ponto.lugar}`;
-    ponto.nome = `UPDATED: ${ponto.nome}`;
-    ponto.tipo = `UPDATED: ${ponto.tipo}`;
-    
-    this.storageService.updatePonto(ponto).then(ponto => {
-      this.showToast('Ponto Atualizado');
+//elimina o Ponto
+  deletePonto(ponto: Ponto){
+    this.storageService.deletePonto(ponto.id).then(ponto =>{
+      this.showToast('Ponto Removido');
       this.myList.closeSlidingItems();
       this.loadPontos();
     });
-   }
+  }
 
-   deletePonto(ponto: Ponto){
-     this.storageService.deletePonto(ponto.id).then(ponto =>{
-       this.showToast('Ponto Removido');
-       this.myList.closeSlidingItems();
-       this.loadPontos();
-     });
-   }
+//mostra um toast
+  async showToast(msg){    
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
 
-   async showToast(msg){    
-     const toast = await this.toastController.create({
-       message: msg,
-       duration: 2000
-     });
-     toast.present();
-   }
-
+//route das tabs
   criarPonto(){
     this.router.navigate(['criar-pontos']);
   }

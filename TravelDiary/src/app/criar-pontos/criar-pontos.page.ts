@@ -14,7 +14,7 @@ export class CriarPontosPage {
 
   newPonto: Ponto = <Ponto>{}
   
-
+//Lista
   @ViewChild('myList')myList: IonList;
   
   constructor(private router: Router, private storageService: StorageService, private plt: Platform, private toastController: ToastController) {
@@ -23,6 +23,7 @@ export class CriarPontosPage {
     })
    }
 
+//adicionar ponto
    addPonto(){
      this.newPonto.id = Date.now();
 
@@ -33,33 +34,14 @@ export class CriarPontosPage {
      });
      this.router.navigate(['pdi']);
    }
-
+//atualizar pontos
    loadPontos(){
      this.storageService.getPontos().then(pontos => {
        this.pontos = pontos;
      })
    };
 
-   updatePonto(ponto: Ponto){
-    ponto.lugar = `UPDATED: ${ponto.lugar}`;
-    ponto.nome = `UPDATED: ${ponto.nome}`;
-    ponto.tipo = `UPDATED: ${ponto.tipo}`;
-    
-    this.storageService.updatePonto(ponto).then(ponto => {
-      this.showToast('Ponto Atualizado');
-      this.myList.closeSlidingItems();
-      this.loadPontos();
-    });
-   }
-
-   deletePonto(ponto: Ponto){
-     this.storageService.deletePonto(ponto.id).then(ponto =>{
-       this.showToast('Ponto Removido');
-       this.myList.closeSlidingItems();
-       this.loadPontos();
-     });
-   }
-
+//colocar um toast
    async showToast(msg){
      const toast = await this.toastController.create({
        message: msg,
@@ -68,10 +50,12 @@ export class CriarPontosPage {
      toast.present();
    }
 
+//voltar à pagina principal dos pontos de interesse
   voltar(){
     this.router.navigate(['pdi']);
   }
 
+//verificar a condição de um botão
   verificar(){
     if(this.newPonto.lugar != undefined && this.newPonto.nome != undefined && this.newPonto.tipo != undefined)
       return !(this.newPonto.nome.length >= 2 && this.newPonto.lugar.length >= 2 && this.newPonto.tipo != "");

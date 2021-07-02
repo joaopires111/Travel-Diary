@@ -17,6 +17,7 @@ export class CriarPercursosPage {
   newPercurso: Percurso = <Percurso>{};
   percursos: Percurso[] = [];
 
+//Listas
   @ViewChild('myList')myList: IonList;//para colocar os Pontos para serem selecionados
   @ViewChild('myList1')myList1: IonList;//para colocar os Pontos para serem selecionados
   
@@ -26,7 +27,7 @@ export class CriarPercursosPage {
       this.loadPercursos();
     })
    }
-
+//adicionar percurso
   addPercurso(){
     this.storageService.getPontos().then(pontos => {
       this.searchPontos(this.nomes, pontos);
@@ -41,23 +42,14 @@ export class CriarPercursosPage {
     });
     this.router.navigate(['percursos']);
   }
-   
-   /*addPonto(){
-     this.newPonto.id = Date.now();
-
-     this.storageService.addPonto(this.newPonto).then(ponto => {
-       this.newPonto = <Ponto>{};
-       this.showToast('Ponto de Interesse criado');
-       this.loadPontos();
-     })
-   }*/
-
+//atualizar percursos
     loadPercursos(){
     this.storageService.getPercursos().then(percursos => {
       this.percursos = percursos;
       });
     }
 
+//atualizar pontos
    loadPontos(){
      this.storageService.getPontos().then(pontos => {
        this.pontos = pontos;
@@ -65,26 +57,7 @@ export class CriarPercursosPage {
      })
    }
 
-   /*updatePonto(ponto: Ponto){
-    ponto.lugar = `UPDATED: ${ponto.lugar}`;
-    ponto.nome = `UPDATED: ${ponto.nome}`;
-    ponto.tipo = `UPDATED: ${ponto.tipo}`;
-    
-    this.storageService.updatePonto(ponto).then(ponto => {
-      this.showToast('Ponto Atualizado');
-      this.myList.closeSlidingItems();
-      this.loadPontos();
-    });
-   }
-
-   deletePonto(ponto: Ponto){
-     this.storageService.deletePonto(ponto.id).then(ponto =>{
-       this.showToast('Ponto Removido');
-       this.myList.closeSlidingItems();
-       this.loadPontos();
-     });
-   }*/
-
+//colocar um toast
    async showToast(msg){
      const toast = await this.toastController.create({
        message: msg,
@@ -93,10 +66,12 @@ export class CriarPercursosPage {
      toast.present();
    }
 
+//voltar para a pagina principal de percursos
   voltar(){
     this.router.navigate(['percursos']);
   }
 
+//procura o ponto com aquele nome, varias vezes
   searchPontos(nomes: string[], pontos: Ponto[]){ 
     this.newPercurso.pontos = [];
     for(let j = 0; j< nomes.length; j++){

@@ -17,6 +17,7 @@ export class DetalhePercursoPage {
     });
   }
 
+//voltar para a pagina principal dos percursos
   voltar(){
     this.router.navigate(["percursos"])
   }
