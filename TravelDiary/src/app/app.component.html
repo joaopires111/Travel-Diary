@@ -2,7 +2,15 @@
   <ion-router-outlet></ion-router-outlet>
   <ion-header>
     <ion-toolbar>
-      <ion-title>TravelDiary</ion-title>
+      <ion-title>
+        TravelDiary 
+        <ion-button (click)="home()" color="danger">
+          <ion-label>Sair</ion-label>
+          <ion-icon name="log-out"></ion-icon>
+        </ion-button>
+      </ion-title>
+
+
     </ion-toolbar>
   </ion-header>
 </ion-app>

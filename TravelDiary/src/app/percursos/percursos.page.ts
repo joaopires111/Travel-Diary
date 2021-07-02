@@ -101,4 +101,7 @@ export class PercursosPage {
   public Pdi(){
     this.router.navigate(["pdi"]);
   }
+  public home(){
+    this.router.navigate(["home"]);
+  }
 }

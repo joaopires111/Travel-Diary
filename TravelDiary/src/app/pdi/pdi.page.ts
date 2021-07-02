@@ -96,6 +96,9 @@ export class PdiPage{
   public Percurso(){
     this.router.navigate(["percursos"]);
   }
+  public home(){
+    this.router.navigate(["home"]);
+  }
 
   
 
