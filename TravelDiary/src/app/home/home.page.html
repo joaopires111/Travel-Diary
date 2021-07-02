@@ -2,19 +2,14 @@
 
 <ion-content [fullscreen]="true">
   <ion-grid fixed>
-    <ion-row style="height: 35px"></ion-row>
+    <ion-row style="height: 50px"></ion-row>
   </ion-grid>
   <ion-grid>
     <ion-row>
       <ion-col>
       </ion-col>
 
-
-          <ion-label>Iniciar Sessão</ion-label>
-
-
-
-
+          <ion-label color="light"><b>Iniciar Sessão</b></ion-label>
       <ion-col>
       </ion-col>
     </ion-row>
@@ -66,7 +61,7 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-button (click)="login()" shape="round"[disabled]='verificar()'>Iníciar</ion-button>
+          <ion-button (click)="login()" class="ion-border" [disabled]='verificar()'>Iníciar</ion-button>
         </div>
       </ion-col>
       <ion-col>
