@@ -25,6 +25,7 @@ export class StorageService {
 
   constructor(private storage: Storage) { }
 
+//criar ponto
   addPonto(ponto: Ponto) : Promise<any>{
     return this.storage.get(PONTO_KEY).then((pontos: Ponto[]) =>{
       if(pontos){
@@ -36,10 +37,12 @@ export class StorageService {
     });
   }
 
+//obter pontos
   getPontos() : Promise<Ponto[]>{
     return this.storage.get(PONTO_KEY);
   }
 
+//atualizar o ponto
   updatePonto(ponto: Ponto) : Promise<any>{
     return this.storage.get(PONTO_KEY).then((pontos: Ponto[]) =>{
       if(!pontos || pontos.length === 0){
@@ -60,6 +63,7 @@ export class StorageService {
     });
   }
 
+//eliminar Ponto
   deletePonto(id: number) : Promise<any>{
     return this.storage.get(PONTO_KEY).then((pontos: Ponto[]) =>{
       if(!pontos || pontos.length === 0){
@@ -76,6 +80,7 @@ export class StorageService {
     });
   }
 
+//criar Percurso
   addPercurso(percurso: Percurso): Promise<any>{
     return this.storage.get(PERCURSO_KEY).then((percursos: Percurso[]) =>{
       if(percursos){
@@ -87,10 +92,12 @@ export class StorageService {
     });
   }
 
+//obter percursos
   getPercursos(): Promise<Percurso[]>{
     return this.storage.get(PERCURSO_KEY);
   }
 
+//atualizar o percurso
   updatePercurso(percurso: Percurso): Promise<any>{
     return this.storage.get(PERCURSO_KEY).then((percursos: Percurso[]) =>{
       if(!percursos || percursos.length === 0){
@@ -111,6 +118,7 @@ export class StorageService {
     });
   }
 
+//eliminar percurso
   deletePercurso(id: number): Promise<any>{
     return this.storage.get(PERCURSO_KEY).then((percursos: Percurso[]) =>{
       if(!percursos || percursos.length === 0){
