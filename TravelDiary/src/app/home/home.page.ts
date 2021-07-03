@@ -18,13 +18,13 @@ export class HomePage {
   }
 //iniciar a conta(fazer de conta)
   login(){
-    this.showToast("Bem vindo" + this.username);
+    this.showToast("Bem vindo " + this.username);
     this.router.navigate(['pdi']);
   }
 
 //verifica a condição para ativa o botao
   verificar(){
-      return !(this.username.length > 5 && this.password.length > 7); 
+      return !(this.username.length > 4 && this.password.length > 4); 
   }
 
 //fazer toast
@@ -34,5 +34,18 @@ export class HomePage {
       duration: 2000
     });
     toast.present();
+  }
+
+  admin = {
+    "nome" : "admin",
+    "password" : "admin"
+  }
+
+  verificaConta(user: string, password: string){
+    if(user == this.admin.nome && password == this.admin.password){
+      this.login();
+    }else{
+      this.showToast("nome ou palavra-passe incorreto");
+    }
   }
 }
