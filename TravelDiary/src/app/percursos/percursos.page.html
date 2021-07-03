@@ -11,11 +11,6 @@
         <ion-label>Pontos de Interesse</ion-label>
         <ion-icon name="map"></ion-icon>
       </ion-tab-button>
-
-
-
-
-
       <ion-tab-button>
         <ion-label>Percursos</ion-label>
         <ion-icon name="flag"></ion-icon>
@@ -30,12 +25,12 @@
        
       </ion-col>
       <ion-col size="2">
-        <ion-button (click)="atualizar()" color="medium">
+        <ion-button (click)="atualizar()">
           <ion-icon name="refresh-outline"></ion-icon>
         </ion-button>  
       </ion-col>
       <ion-col size="2">
-        <ion-button (click)="criarPercurso()" color="medium">
+        <ion-button (click)="criarPercurso()">
           <ion-icon name="add-circle"></ion-icon>
         </ion-button>  
       </ion-col>
@@ -47,9 +42,7 @@
       <ion-item class="ion-no-border">
         <ion-label>
           <h3>{{percurso.nome}}</h3>
-          <ion-text color="secondary">
             <p>{{percurso.pontos.length}} pontos de interesse</p>
-          </ion-text>
         </ion-label>
         <ion-icon name="chevron-back-outline" color="light"></ion-icon>
       </ion-item>

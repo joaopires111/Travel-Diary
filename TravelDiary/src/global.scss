@@ -26,7 +26,7 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 ion-content {
---background: linear-gradient(0deg, #ff8b1f, #ff1f1f);
+--background: linear-gradient(0deg,  var(--ion-color-orangeback),  var(--ion-color-redback));
 }
 
 ion-item {
@@ -39,22 +39,22 @@ ion-item {
 ion-tab-bar {
 --background: rgb(32, 32, 32);
 --background-activated: rgb(53, 53, 53);
---color: #ff8b1f;
+--color:  var(--ion-color-orangeback);
 }
-ion-item-sliding {
---background:#ff1f1f;
 
-}
+
 ion-item.ion-no-border{
   --border-radius: 0px;
 }
 ion-button{
   --border-radius: 10px;
+  --background: #ffffff;
+  --background-activated: #ffffff;
+  --color: var(--ion-color-redback);
+  --color-activated: var(--ion-color-redback);
 }
-ion-item.transparent{
-  --ion-item-background-color: transparent;
-}
-ion-label{
-  --color: #ffffff;
 
-}
+
+
+
+

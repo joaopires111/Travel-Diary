@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { PdiPageRoutingModule } from './pdi-routing.module';
 
 import { PdiPage } from './pdi.page';
-
 @NgModule({
   imports: [
     CommonModule,

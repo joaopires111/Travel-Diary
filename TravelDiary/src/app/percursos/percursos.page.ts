@@ -70,7 +70,7 @@ export class PercursosPage {
     });
   }
 
-//
+//coloca um toast (texto popup de baixo)
   async showToast(msg){
     const toast = await this.toastController.create({
       message: msg,
@@ -78,7 +78,7 @@ export class PercursosPage {
     });
     toast.present();
   }
-//nanigationExtras
+//navigationExtras
   public verPercurso(id: number) {
     let navigationExtras: NavigationExtras;
     for(let i = 0; i< this.percursos.length; i++){
