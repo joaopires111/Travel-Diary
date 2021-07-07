@@ -5,6 +5,8 @@
     <ion-row style="height: 35px"></ion-row>
   </ion-grid>
 
+
+
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button (click)="Pdi()">
@@ -17,6 +19,14 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+  <div id='container'>
+          
+    <ion-text color="light">
+     <p><ion-icon name="information-circle" color='light'></ion-icon> Se já criou pontos de interesse carregue no botão "+" no topo da tela para criar um percurso.</p>
+     <p><ion-icon name="information-circle" color='light'></ion-icon> Após criar o percurso clique no botão "atualizar" situado à esquerda do botão "+" para o visualizar.</p>
+    </ion-text>
+  </div>
+
   <ion-grid>
     <ion-row>
       <ion-col size="8">
@@ -54,4 +64,8 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+
+
+
 </ion-content>

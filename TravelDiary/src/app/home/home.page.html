@@ -65,13 +65,28 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-button (click)="verificaConta(this.username, this.password)" shape="round"[disabled]='verificar()'>Iníciar</ion-button>
+          <ion-button (click)="verificaConta(this.username, this.password)" [disabled]='verificar()'>Iníciar</ion-button>
+       
         </div>
+        
       </ion-col>
       <ion-col>
         <div>
         </div>
       </ion-col>
     </ion-row>
+<ion-row style="height: 150px">
+  <ion-col>
+    <div id='container'>
+      <ion-icon name="information-circle" color='light'></ion-icon>
+      <ion-text color="light">
+        Apenas o nome de utilizador "admin" com palavra-passe "admin", está implementado.
+      </ion-text>
+    </div>
+  </ion-col>
+  </ion-row>
   </ion-grid>
+
+
+
 </ion-content>
